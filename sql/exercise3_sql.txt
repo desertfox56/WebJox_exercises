@@ -1,0 +1,43 @@
+**Задание 3**  **Пример 1:** *Создать таблицы `people`, `car`, `car_dealership`, расставить связи между ними,
+добавить данные и сделать выборку*
+
+CREATE TABLE people (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100),
+  age INTEGER,
+  address VARCHAR(100)
+);
+
+CREATE TABLE car (
+  id SERIAL PRIMARY KEY,
+  make VARCHAR(100),
+  model VARCHAR(100),
+  year INTEGER
+);
+
+CREATE TABLE car_dealership (
+  id SERIAL PRIMARY KEY,
+  dealership_name VARCHAR(100),
+  location VARCHAR(100),
+  owner_id INTEGER REFERENCES people(id),
+  car_id INTEGER REFERENCES car(id)
+);
+
+
+INSERT INTO people (name, age, address) VALUES ('John Smith', 35, '123 Main St');
+INSERT INTO people (name, age, address) VALUES ('Jane Doe', 28, '456 Elm St');
+INSERT INTO car (make, model, year) VALUES ('Toyota', 'Camry', 2020);
+INSERT INTO car (make, model, year) VALUES ('Honda', 'Accord', 2019);
+INSERT INTO car_dealership (dealership_name, location, owner_id, car_id) VALUES ('ABC Motors', '123 Maple Ave', 1, 1);
+INSERT INTO car_dealership (dealership_name, location, owner_id, car_id) VALUES ('XYZ Auto', '789 Oak St', 2, 2);
+
+
+SELECT * FROM people;
+
+SELECT * FROM car;
+
+*Выборка всех данных из таблицы "car_dealership" с присоединением данных из связанных таблиц с помощью JOIN*
+SELECT cd.id, cd.dealership_name, cd.location, p.name AS owner_name, c.make, c.model
+FROM car_dealership cd
+JOIN people p ON cd.owner_id = p.id
+JOIN car c ON cd.car_id = c.id;

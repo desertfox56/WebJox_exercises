@@ -1,0 +1,29 @@
+**Задание 1** **Пример 1:** *Создать одну таблицу, добавить, обновить, вывести и удалить данные.* 
+
+CREATE TABLE customers
+(
+    id SERIAL PRIMARY KEY,
+    firstname CHARACTER VARYING(30),
+    lastname CHARACTER VARYING(30),
+    email CHARACTER VARYING(30),
+    age INTEGER
+);
+
+INSERT INTO customers VALUES (1,'John','Johnson','john.johnson@gmail.com', 18);
+
+INSERT INTO customers VALUES (2,'Karl','Karlson','karl.karlson@gmail.com',20);
+
+INSERT INTO customers VALUES (3,'Sven','Svenson','sven.svenson@gmail.com',25);
+
+INSERT INTO customers VALUES (4,'Peter','Peterson','peter.peterson@gmail.com',26);
+
+INSERT INTO customers VALUES (5,'Sigurd','Sigurdson','sigurd.sigurdson@gmail.com',40);
+
+INSERT INTO customers VALUES (6,'Karl','Johnson','karl.johnson@gmail.com',20);
+
+UPDATE customers
+SET age = age + 5;
+
+SELECT * FROM customers;
+
+DELETE FROM customers;
