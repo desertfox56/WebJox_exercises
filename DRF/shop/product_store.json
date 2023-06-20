@@ -1,0 +1,18 @@
+[
+    {
+        "model": "product.store",
+        "pk": 1,
+        "fields": {
+            "name": "ElectroNexus",
+            "description": "Магазин электроники"
+        }
+    },
+    {
+        "model": "product.store",
+        "pk": 2,
+        "fields": {
+            "name": "FreshMart",
+            "description": "Магазин продуктов"
+        }
+    }
+]

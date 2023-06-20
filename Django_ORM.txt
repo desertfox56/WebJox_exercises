@@ -1,0 +1,85 @@
+
+python manage.py shell
+from product.models import *
+Product.objects.all()
+<QuerySet [<Product: Product object (1)>, <Product: Product object (2)>, <Product: Product object (3)>, <Product: Product object (4)>, <Product: Product object (5)>]>
+for product in Product.objects.all(): 
+...     print(f'ID: {product.id}, Title: {product.title}, Description: {product.description}, Price: {product.price}')
+...
+ID: 1, Title: Телевизор, Description: 4K Ultra HD, Price: 13400.00
+ID: 2, Title: Ноутбук, Description: 16GB RAM, 1TB SSD, Price: 73250.00
+ID: 3, Title: Хлеб, Description: Свежий хлеб, Price: 20.99
+ID: 4, Title: Яблоки, Description: Свежие яблоки Айдаред, Price: 80.00
+ID: 5, Title: Бананы, Description: Бананы свежие, Price: 120.00
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ products = Product.objects.filter(title = 'Телевизор')
+>>> for product in Product.objects.filter(title = 'Телевизор'): print(f'ID: {product.id}, Title: {product.title}, Description: {product.description}, Price: {product.price}')
+...
+ID: 1, Title: Телевизор, Description: 4K Ultra HD, Price: 13400.00
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+products = Product.objects.order_by('price')
+for product in Product.objects.order_by('price'): print(f'ID: {product.id}, Title: {product.title}, Description: {product.description}, Price: {product.price}')
+...
+ID: 3, Title: Хлеб, Description: Свежий хлеб, Price: 20.99
+ID: 4, Title: Яблоки, Description: Свежие яблоки Айдаред, Price: 80.00
+ID: 5, Title: Бананы, Description: Бананы свежие, Price: 120.00
+ID: 1, Title: Телевизор, Description: 4K Ultra HD, Price: 13400.00
+ID: 2, Title: Ноутбук, Description: 16GB RAM, 1TB SSD, Price: 73250.00
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+store = Store.objects.get(id=2)
+>>> Product.objects.create(id=6, title='Ананас', description='Свежий ананас', price=799.99, quantity=1, store=store)
+<Product: Product object (6)>
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Product.objects.filter(quantity__lt=100).order_by('price')
+<QuerySet [<Product: Product object (5)>, <Product: Product object (6)>, <Product: Product object (1)>, <Product: Product object (2)>]>
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[
+    {
+        "id": 1,
+        "title": "Телевизор",
+        "description": "4K Ultra HD",
+        "price": "13400.00",
+        "quantity": 5,
+        "image": "http://127.0.0.1:8000/media/products/34447bbcfae6ddca787ebcd7c0cecf8b39f202f5eb128aacbffaf512aece8bef.jpg"
+    },
+    {
+        "id": 2,
+        "title": "Ноутбук",
+        "description": "16GB RAM, 1TB SSD",
+        "price": "73250.00",
+        "quantity": 4,
+        "image": "http://127.0.0.1:8000/media/products/91904a7b1fa1dc73b529a696af00ed1e4f697d56e49205e9741f49e308ea932d.jpg"
+    },
+    {
+        "id": 3,
+        "title": "Хлеб",
+        "description": "Свежий хлеб",
+        "price": "20.99",
+        "quantity": 100,
+        "image": "http://127.0.0.1:8000/media/products/321922-800x800.jpg"
+    },
+    {
+        "id": 4,
+        "title": "Яблоки",
+        "description": "Свежие яблоки Айдаред",
+        "price": "80.00",
+        "quantity": 100,
+        "image": "http://127.0.0.1:8000/media/products/300221.jpg"
+    },
+    {
+        "id": 5,
+        "title": "Бананы",
+        "description": "Бананы свежие",
+        "price": "120.00",
+        "quantity": 30,
+        "image": "http://127.0.0.1:8000/media/products/8d3cef09f34689722ba9e72ee78315bf.jpg"
+    },
+    {
+        "id": 6,
+        "title": "Ананас",
+        "description": "Свежий ананас",
+        "price": "799.99",
+        "quantity": 1,
+        "image": null
+    }
+]

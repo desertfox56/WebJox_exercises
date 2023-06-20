@@ -1,0 +1,62 @@
+[
+    {
+        "model": "product.product",
+        "pk": 1,
+        "fields": {
+            "title": "Телевизор",
+            "description": "4K Ultra HD",
+            "price": "13400.00",
+            "quantity": 5,
+            "image": "products/34447bbcfae6ddca787ebcd7c0cecf8b39f202f5eb128aacbffaf512aece8bef.jpg",
+            "store": 1
+        }
+    },
+    {
+        "model": "product.product",
+        "pk": 2,
+        "fields": {
+            "title": "Ноутбук",
+            "description": "16GB RAM, 1TB SSD",
+            "price": "73250.00",
+            "quantity": 4,
+            "image": "products/91904a7b1fa1dc73b529a696af00ed1e4f697d56e49205e9741f49e308ea932d.jpg",
+            "store": 1
+        }
+    },
+    {
+        "model": "product.product",
+        "pk": 3,
+        "fields": {
+            "title": "Хлеб",
+            "description": "Свежий хлеб",
+            "price": "20.99",
+            "quantity": 100,
+            "image": "products/321922-800x800.jpg",
+            "store": 2
+        }
+    },
+    {
+        "model": "product.product",
+        "pk": 4,
+        "fields": {
+            "title": "Яблоки",
+            "description": "Свежие яблоки Айдаред",
+            "price": "80.00",
+            "quantity": 100,
+            "image": "products/300221.jpg",
+            "store": 2
+        }
+    },
+    {
+        "model": "product.product",
+        "pk": 5,
+        "fields": {
+            "title": "Бананы",
+            "description": "Бананы свежие",
+            "price": "120.00",
+            "quantity": 30,
+            "image": "products/8d3cef09f34689722ba9e72ee78315bf.jpg",
+            "store": 2
+        }
+    }
+]
