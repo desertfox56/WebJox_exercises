@@ -33,8 +33,10 @@ class UserRegistrSerializer(serializers.ModelSerializer):
             # Если нет, то выводим ошибку
             raise serializers.ValidationError({"password": "Пароль не совпадает"})
         # Сохраняем пароль
-        user.set_password(password)
+        
         # Сохраняем пользователя
+        user.set_password(password)
+        print(user.password)
         user.save()
         #Случай если роль клиента
         if role == "client":
